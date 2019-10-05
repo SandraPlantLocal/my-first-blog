@@ -26,9 +26,10 @@
           </div>
 
           <div>
-              <p>published: 14.06.2014, 12:14</p>
-              <h2><a href="">My first post</a></h2>
-              <p>You can now have a little fun and try to customize your template! Here are a few useful tags for that:</p>
+            {% for post in posts %}
+  {{ post }}
+{% endfor %}
+
           </div>
 
           <div>
@@ -38,3 +39,15 @@
           </div>
       </body>
   </html>
+
+  <div>
+    <h1><a href="/">Django Girls Blog</a></h1>
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
